@@ -18,6 +18,6 @@ public class WeaponTest {
         assertTrue(weapon instanceof ItemAbstract, "Weapon must be a kind of Item");
         assertTrue(weapon instanceof Equipment, "Weapon must be a kind of Equipment");
 
-        assertEquals(MountPoint.RIGHT_ARM, weapon.getMountPoint(), "wrong mounting point");
+        assertEquals(MountPoint.RIGHT_ARM, ((Equipment) weapon).getMountPoint(), "wrong mounting point... Remember that weapon is a kind of Equipment.class");
     }
 }

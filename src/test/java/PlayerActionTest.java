@@ -41,7 +41,6 @@ public class PlayerActionTest {
         }
         assertEquals(22, player.getDamage(), "Damage not updated when level up");
 
-
         assertEquals(40, enemy.getHp(), "Wrong HP init");
         assertEquals(40, enemy.getMaxHp(), "Wrong max HP init");
         assertEquals(12, enemy.getDamage(), "Wrong damage");
@@ -54,7 +53,13 @@ public class PlayerActionTest {
         assertEquals(100, services.getLevel(), "Wrong level init");
         assertFalse(services.isAttackable(), "This target should not be attackable");
 
+        player.attack(enemy);
+        assertEquals(18, enemy.getHp(), "Wrong HP after attack");
+
+        player.attack(services);
+        assertEquals(3000, services.getHp(), "This unit is non attackable");
+
         player.levelUp();
-        assertEquals(25, player.getDamage(), "Damage not updated when level up");
+        assertEquals(25, player.getDamage(), "Damage not updated as it should when level up");
     }
 }
